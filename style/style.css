@@ -4,7 +4,7 @@ body {
 
 .tasks {
     width: auto;
-    padding-top: 45px;
+    padding-top: 30px;
     margin-left: 75px;
     color: #432818;
     font-size: 48px;
@@ -14,6 +14,22 @@ body {
 
     ol {
         list-style-type: decimal;
+
+        li {
+            margin-top: 20px;
+
+            span {
+                display: none;
+                margin-left: 25px;
+            }
+
+            &:hover {
+                span {
+                    display: inline-block;
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }
 
