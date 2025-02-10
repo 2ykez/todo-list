@@ -1,0 +1,17 @@
+body {
+    background-color: #FFDEB8;
+}
+
+.tasks {
+    width: auto;
+    padding-top: 45px;
+    margin-left: 75px;
+    color: #432818;
+    font-size: 48px;
+    font-family: "DynaPuff", serif;
+    font-weight: 400;
+
+    ol {
+        list-style-type: decimal;
+    }
+}
