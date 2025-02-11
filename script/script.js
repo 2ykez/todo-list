@@ -17,6 +17,7 @@ inputBtn.addEventListener('click', (e) => {
 
     if (newTask.length <= 1) {
         alert('You must enter a task longer then one symbol');
+        form.reset();
     }
 
     listOfTask.innerHTML += `<li>${newTask}<img src="icon/remove.svg" alt="" class="remove__btn"></li>`;
