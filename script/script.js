@@ -4,7 +4,8 @@ const form = document.querySelector('form'),
     inputText = form.querySelector('.input__text'),
     inputBtn = form.querySelector('.submit__btn'),
     spaceForTasks = document.querySelector('.tasks'),
-    listOfTask = spaceForTasks.querySelector('ol');
+    listOfTasks = spaceForTasks.querySelector('ol'),
+    removeBtn = document.querySelectorAll('.remove__btn');
 
 inputBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -16,10 +17,10 @@ inputBtn.addEventListener('click', (e) => {
     }
 
     if (newTask.length > 2) {
-        listOfTask.innerHTML += `<li>${newTask}<img src="icon/remove.svg" alt="" class="remove__btn"></li>`;
+        listOfTasks.innerHTML += `<li>${newTask}<img src="icon/remove.svg" alt="remove btn" class="remove__btn"></li>`;
     } else {
         alert('You must enter more info');
     }
 
     form.reset();
-})
+});
