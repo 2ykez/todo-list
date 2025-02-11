@@ -15,12 +15,11 @@ inputBtn.addEventListener('click', (e) => {
         newTask = `${newTask.substring(0, 22)}...`;
     }
 
-    if (newTask.length <= 1) {
-        alert('You must enter a task longer then one symbol');
-        form.reset();
+    if (newTask.length > 2) {
+        listOfTask.innerHTML += `<li>${newTask}<img src="icon/remove.svg" alt="" class="remove__btn"></li>`;
+    } else {
+        alert('You must enter more info');
     }
-
-    listOfTask.innerHTML += `<li>${newTask}<img src="icon/remove.svg" alt="" class="remove__btn"></li>`;
 
     form.reset();
 })
