@@ -1,26 +1,28 @@
 'use strict';
 
-const form = document.querySelector('form'),
-    inputText = form.querySelector('.input__text'),
-    inputBtn = form.querySelector('.submit__btn'),
-    spaceForTasks = document.querySelector('.tasks'),
-    listOfTasks = spaceForTasks.querySelector('ol'),
-    removeBtn = document.querySelectorAll('.remove__btn');
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form'),
+        submitBtn = form.querySelector('.submit__btn'),
+        inputTask = form.querySelector('.input__text'),
+        listOfTasks = document.querySelector('.list__tasks');
 
-inputBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
 
-    let newTask = inputText.value;
+        let newTask = inputTask.value;
 
-    if (newTask.length > 21) {
-        newTask = `${newTask.substring(0, 22)}...`;
-    }
+        if (newTask.length > 21) {
+            newTask = `${newTask.substring(0, 22)}...`;
+        }
 
-    if (newTask.length > 2) {
-        listOfTasks.innerHTML += `<li>${newTask}<img src="icon/remove.svg" alt="remove btn" class="remove__btn"></li>`;
-    } else {
-        alert('You must enter more info');
-    }
+        listOfTasks.innerHTML += `<li>${newTask} <div class="remove__btn"><img src="icon/remove.svg"></div></li>`;
 
-    form.reset();
+        form.reset();
+
+        document.querySelectorAll('.remove__btn').forEach(item => {
+            item.addEventListener('click', () => {
+                item.parentElement.remove();
+            });
+        });
+    });
 });
