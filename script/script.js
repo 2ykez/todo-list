@@ -24,14 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         form.reset();
 
-        localStorage.setItem('tasks', listOfTasks.childNodes);
+        localStorage.setItem('tasks', listOfTasks.innerHTML);
 
         document.querySelectorAll('.remove__btn').forEach(item => {
             item.addEventListener('click', () => {
                 item.parentElement.remove();
+                localStorage.setItem('tasks', listOfTasks.innerHTML);
             });
         });
     });
 
-    console.log(localStorage.getItem('tasks', listOfTasks.childNodes));
+    console.log(localStorage.getItem('tasks', listOfTasks.innerHTML));
 });
