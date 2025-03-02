@@ -11,6 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
         listOfTasks.innerHTML += localStorage.getItem('tasks');
     }
 
+    function deleteTask() {
+        document.querySelectorAll('.remove__btn').forEach(item => {
+            item.addEventListener('click', () => {
+                item.parentElement.remove();
+                localStorage.setItem('tasks', listOfTasks.innerHTML);
+            });
+        });
+    }
+
+    deleteTask();
+
     submitBtn.addEventListener('click', (e) => {
         e.preventDefault();
 
@@ -26,12 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         localStorage.setItem('tasks', listOfTasks.innerHTML);
 
-        document.querySelectorAll('.remove__btn').forEach(item => {
-            item.addEventListener('click', () => {
-                item.parentElement.remove();
-                localStorage.setItem('tasks', listOfTasks.innerHTML);
-            });
-        });
+        deleteTask();
     });
 
     console.log(localStorage.getItem('tasks', listOfTasks.innerHTML));
