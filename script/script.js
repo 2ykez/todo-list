@@ -21,24 +21,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     deleteTask();
+    ~
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
 
-    submitBtn.addEventListener('click', (e) => {
-        e.preventDefault();
+            let newTask = inputTask.value;
 
-        let newTask = inputTask.value;
+            if (newTask.length > 21) {
+                newTask = `${newTask.substring(0, 22)}...`;
+            }
 
-        if (newTask.length > 21) {
-            newTask = `${newTask.substring(0, 22)}...`;
-        }
+            if (newTask.length > 2) {
+                listOfTasks.innerHTML += `<li>${newTask} <div class="remove__btn"><img src="icon/remove.svg"></div></li>`;
+            } else {
+                alert('You should write some');
+            }
 
-        listOfTasks.innerHTML += `<li>${newTask} <div class="remove__btn"><img src="icon/remove.svg"></div></li>`;
+            form.reset();
 
-        form.reset();
+            localStorage.setItem('tasks', listOfTasks.innerHTML);
 
-        localStorage.setItem('tasks', listOfTasks.innerHTML);
-
-        deleteTask();
-    });
+            deleteTask();
+        });
 
     console.log(localStorage.getItem('tasks', listOfTasks.innerHTML));
 });
