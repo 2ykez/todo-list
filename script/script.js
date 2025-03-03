@@ -78,6 +78,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
         deleteTask();
     });
-
-    console.log(localStorage.getItem('tasks', listOfTasks.innerHTML));
 });
